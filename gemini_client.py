@@ -20,7 +20,7 @@ class GeminiClient:
             print("[WARNING] Gemini client not available; responses will be local fallback.")
             return
             
-        self.api_key = api_key or os.getenv("GEMINI_API_KEY", "AIzaSyCxKF6VZRKcHVO_NNEPQ6nRpKQ-aUL3-_A")
+        self.api_key = api_key or os.getenv("GEMINI_API_KEY", "your_api_key_here")
         
         if not self.api_key:
             print("[WARNING] GEMINI_API_KEY not set. Gemini responses disabled.")
