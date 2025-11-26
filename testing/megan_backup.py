@@ -242,7 +242,7 @@ def analyze_emotion_from_audio(audio) -> str:
 
 
 # ---------------- Gemini API Setup (optional) -----------------
-API_KEY = os.getenv("GEMINI_API_KEY", "AIzaSyCxKF6VZRKcHVO_NNEPQ6nRpKQ-aUL3-_A")
+API_KEY = os.getenv("GEMINI_API_KEY", "your_api_key_here")
 genai_available = False
 if genai is None:
     print("[WARNING] Gemini client not available; responses will be local fallback.")
