@@ -102,15 +102,24 @@ def listen_and_recognize(prompt="You: ", text_fallback=True, use_voice=True):
                             continue
                 else:
                     # sounddevice not available, skip SR method
-                    pass
+                    if attempts >= max_attempts:
+                        break
+                    else:
+                        continue
             except Exception as e:
                 print(f"\nRecognition error: {e}")
-                pass
+                if attempts >= max_attempts:
+                    break
+                else:
+                    continue
 
         # Fallback to text input after max attempts
         if attempts >= max_attempts:
             if text_fallback:
                 print("\nSwitching to text input...")
                 txt = input(prompt)
+                # If empty input, try again once
+                if not txt.strip():
+                    txt = input(prompt)
                 return txt, None
             raise RuntimeError("No available audio input method")

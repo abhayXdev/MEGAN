@@ -42,10 +42,14 @@ def main():
             # Get user input
             user_input, audio = listen_and_recognize()
             if not user_input:
+                import time
+                time.sleep(0.5)  # Prevent rapid empty input loops
                 continue
             
             user_input = user_input.strip()
             if not user_input:
+                import time
+                time.sleep(0.5)  # Prevent rapid empty input loops
                 continue
             
             # Check for exit commands BEFORE emotion analysis to avoid audio glitches

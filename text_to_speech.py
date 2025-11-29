@@ -13,7 +13,14 @@ except:
 
 try:
     import pyttsx3
-    tts_available = True
+    # Test initialization
+    try:
+        _test_engine = pyttsx3.init()
+        _test_engine.stop()
+        del _test_engine
+        tts_available = True
+    except:
+        tts_available = False
 except:
     pyttsx3 = None
     tts_available = False
